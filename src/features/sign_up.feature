@@ -1,4 +1,4 @@
-@regression 
+@regression
 Feature: Sign up
 
   As a guest on Etherscan sign up page
@@ -25,7 +25,7 @@ Feature: Sign up
     And I click Login button
     And I should be on account overview page
 
-  Scenario: Check all sign up mandatory fields errors 
+  Scenario: Unable to sign up without entering mandatory data
     Given I click Create an Account button
     Then Please enter Username. error is visible
     And Please enter a valid email address. error is visible
@@ -33,3 +33,65 @@ Feature: Sign up
     And Please enter Password. error is visible
     And Your password must be at least 8 characters long. error is visible
     And Please accept our Terms and Conditions. error is visible
+@wip
+  Scenario: Unable to sign up without username input
+    Given I enter email 
+    And I confirm email
+    And I enter password
+    And I confirm password
+    And I check terms checkbox
+    And I check newsletter checkbox
+    When I click Create an Account button
+    Then Please enter Username. error is visible
+
+  Scenario: Unable to sign up without email input
+    Given I enter username 
+    And I confirm email 
+    And I enter password
+    And I confirm password
+    And I check terms checkbox
+    And I check newsletter checkbox
+    When I click Create an Account button
+    Then Please enter a valid email address. error is visible
+    And Email address does not match. error is visible
+
+  Scenario: Unable to sign up without confirm email input
+    Given I enter username
+    And I enter email
+    And I enter password
+    And I confirm password
+    And I check terms checkbox
+    And I check newsletter checkbox
+    When I click Create an Account button
+    Then Please re-enter your email address. error is visible
+
+  Scenario: Unable to sign up without password input 
+    Given I enter username 
+    And I enter email
+    And I confirm email
+    And I confirm password
+    And I check terms checkbox
+    And I check newsletter checkbox
+    When I click Create an Account button
+    Then Please enter Password. error is visible
+    And Password does not match, please check again. error is visible
+
+  Scenario: Unable to sign up without confirm password input
+    Given I enter username 
+    And I enter email
+    And I confirm email
+    And I enter password
+    And I check terms checkbox
+    And I check newsletter checkbox
+    When I click Create an Account button
+    Then Your password must be at least 8 characters long. error is visible
+
+   Scenario: Unable to sign up without checking terms and conditions checkbox
+    Given I enter username 
+    And I enter email
+    And I confirm email
+    And I enter password
+    And I confirm password
+    And I check newsletter checkbox
+    When I click Create an Account button
+    Then Please accept our Terms and Conditions. error is visible

@@ -59,6 +59,14 @@ Then("Please accept our Terms and Conditions. error is visible", async function 
   await expect(page.locator('//div[text()="Please accept our Terms and Conditions."]')).toHaveText("Please accept our Terms and Conditions.");
 });
 
+Then("Email address does not match. error is visible", async function () {
+  await expect(page.locator('//div[text()="Email address does not match."]')).toHaveText("Email address does not match.");
+});
+
+Then("Password does not match, please check again. error is visible", async function () {
+  await expect(page.locator('//div[text()="Please accept our Terms and Conditions."]')).toHaveText("Please accept our Terms and Conditions.");
+});
+
 // todo
 Then("Verify Your Email text is visible", async function () {
   console.log("Verify Your Email text is visible");
@@ -87,3 +95,6 @@ Then("I click Login button", async function () {
 Then("I should be on account overview page", async function () {
   console.log("I should be on account overview page");
 });
+function waitInSec(arg0: number) {
+}
+
