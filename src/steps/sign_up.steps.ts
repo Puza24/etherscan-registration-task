@@ -67,7 +67,7 @@ Then("Password does not match, please check again. error is visible", async func
   await expect(page.locator('//div[text()="Please accept our Terms and Conditions."]')).toHaveText("Please accept our Terms and Conditions.");
 });
 
-// todo
+// todo: replace with methods
 Then("Verify Your Email text is visible", async function () {
   console.log("Verify Your Email text is visible");
 });
@@ -76,8 +76,8 @@ Then("I navigate to mailinator", async function () {
   console.log("I navigate to mailinator");
 });
 
-Then("I click on confrimation link from inbox", async function () {
-  console.log("I click on confrimation link from inbox");
+Then("I click on confirmation link from inbox", async function () {
+  console.log("I click on confirmation link from inbox");
 });
 
 Then("Welcome to Etherscan! text is visible", async function () {
@@ -95,6 +95,5 @@ Then("I click Login button", async function () {
 Then("I should be on account overview page", async function () {
   console.log("I should be on account overview page");
 });
-function waitInSec(arg0: number) {
-}
+
 

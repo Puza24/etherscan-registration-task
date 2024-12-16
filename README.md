@@ -13,7 +13,7 @@
 
 ## Description
 
-Test scenarios are located in `src/features/sign_up` folder.
+Test scenarios are located in `src/features` folder.
 
 **CAPTCHA** is being ignored in test scenarios. 
 
@@ -23,7 +23,7 @@ Test scenarios are located in `src/features/sign_up` folder.
 
 In `sign_up.feature` there is an example of `e2e` test, which is step-by-step flow of the actual sign up flow for a new user.
 
-Since given env is PROD, actual sign up is not possible to automate completely (due to CAPTCHA), so I've defined the steps after submitting the sign up form to only log the particular step.    
+Since given environment is PROD, actual sign up is not possible to automate completely (due to CAPTCHA), so I've defined the steps after submitting the sign up form to only log the particular step.    
 
 ## Automation
 
@@ -39,7 +39,13 @@ Repository contains automation framework for automating test scenarios. I've use
 
 Hooks are defined in `utils/hooks.ts` file, at the start of every test browser is being initiated and new tab is opened that will navigate to the `baseURL` - in this case `https://etherscan.io/register`.
 
-By default, tests will run in `HEADFULL` mode. To run in `HEADLESS` mode, navigate to `utils/hooks.ts` file and change `headless` variable to `true`:
+By default, tests will run in `HEADFULL` mode. 
+
+In `After` hook in `utils/hooks.ts`, there is a method that will take the screenshot in case test fails and save it in `report/` folder. 
+
+Since [Etherscan website](https://etherscan.io/register) is a PROD environment, due to CAPTCHA, running test in `HEADLESS` mode will not work at all. I've left screenshot of my try inside `report/failed-test.png`.
+
+To run in `HEADLESS` mode, navigate to `utils/hooks.ts` file and change `headless` variable to `true`.
 ```
 headless: true
 ```
@@ -63,15 +69,11 @@ To view the steps usage, run:
 ```
 npm run features:usage
 ```
-To view undefined steps, run:
-```
-npm run features:undefined
-```
 
 #### Possible Improvements
 - Refactor steps in `.feature` files to pass the variables dynamically so there is no need for defining separete step for each case 
 - Creating Page Object Model with classes each page, e.g. SignUp page, SignIn page, Mailinator page 
-- Define selectors and methods within classes, moving part of the logic from the steps. Leading to cleaner step files.
+- Define selectors and methods within classes, moving part of the logic from the steps. Leading to cleaner step files
 - Add possibility to dynamicaly choose test execution mode `headless` or `headfull`  
-- Create basic workflow for executing tests on GitHub via GitActions;  
+- Create basic workflow for executing tests on GitHub via GitActions  
 - Add better reporter

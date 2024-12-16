@@ -5,7 +5,6 @@
   "type": "commonjs",
   "scripts": {
     "features:usage": "cucumber-js --format usage --dry-run",
-    "features:undefined": "cucumber-js --format snippets --dry-run",
     "dry-run": "cucumber-js --dry-run",
     "regression": "npx cucumber-js --tags @regression",
     "wip": "npx cucumber-js --tags @wip"
