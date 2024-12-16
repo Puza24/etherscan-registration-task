@@ -4,7 +4,7 @@ import { expect } from "@playwright/test";
 
 // todo improvements
 
-Given("I enter {string} chars", async function (input: string) {
+Given("I enter {string} characters", async function (input: string) {
   if (input == '4') {
     await page.locator('#ContentPlaceHolder1_txtUserName').fill('asdf')
   } else if (input == '35') {
@@ -16,14 +16,14 @@ Given("I enter {string} chars", async function (input: string) {
   await page.locator('#ContentPlaceHolder1_txtEmail').click()
 });
 
-Given("I enter any special char returns error", async function () {
+Given("I enter any special characters returns error", async function () {
   const specialCharacters = [
     ' ','!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+',
     '[', ']', '{', '}', '\\', '|', ';', ':', '\'', '"', ',', '<', '.', '>',
     '/', '?', '~', '`'
   ];
   
-  // checking error for all special chars and space input
+  // checking error for all special characters and space input
   for (let i=0; i<specialCharacters.length; i++) {
     await page.locator('#ContentPlaceHolder1_txtUserName').fill(`asdf${specialCharacters[i]}`)
     // click on another field to trigger the error
@@ -39,7 +39,7 @@ Then("Please enter at least 5 characters. error is visible", async function () {
   await expect(page.locator('#ContentPlaceHolder1_txtUserName-error')).toHaveText('Please enter at least 5 characters.')
 });
 
-Then("I see only first 30 chars in the username field", async function () {
+Then("I see only first 30 characters in the username field", async function () {
   await expect(page.locator('#ContentPlaceHolder1_txtUserName')).toHaveValue('qwertyuiopasdfghjklzxcvbnm1234')
 });
 

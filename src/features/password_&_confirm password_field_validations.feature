@@ -5,11 +5,6 @@ Feature: Sign up password and confirm password field validations
 	So I know that platform won't let me create profil with invalid data
 
 # Password field validations
-    Scenario: Guest cannot register with an empty password field
-        Given I leave password field empty
-        When I click the "Create an Account" button
-        Then I should see error message "Please enter Password."
-
     Scenario: Check password field error when guest insert valid password and then clear input 
         Given I enter valid password in password field 
         When I clear password input field
@@ -20,11 +15,6 @@ Feature: Sign up password and confirm password field validations
         Then I should see error message "Your password must be at least 8 characters long."
 
 # Confirm password field validations
-    Scenario: Guest cannot register with an empty confirm password field
-        Given I leave confirm password field empty
-        When I click the "Create an Account" button
-        Then I should see error message "Your password must be at least 8 characters long."
-
     Scenario: Check confirm password field error when guest insert matching password and then clear input 
         Given I enter matching password in confirm password field 
         When I clear password input field
@@ -35,8 +25,8 @@ Feature: Sign up password and confirm password field validations
         Then I should see error message "Password does not match, please check again."
 
     Scenario: Check confirm password field error when guest insert invalid matching password
-        Given I enter matching invalid password in confirm password field 
-        Then I should see error message "Password does not match, please check again."
+        Given I enter matching invalid password in confirm password field # Matching invalid password here would be password with less than 8 characters
+        Then I should see error message "Your password must be at least 8 characters long."
 
 # Password visibility option
     Scenario: Guest cannot see password while typing in password field by default

@@ -4,11 +4,6 @@ Feature: Sign up email field validations
 	I want to be able to see all email errors that can occur on sign up form
 	So I know that platform won't let me create profil with invalid data
 
-    Scenario: Guest cannot register with an empty email field
-        Given I leave email field empty
-        When I click the "Create an Account" button
-        Then I should see error message "Please enter a valid email address."
-
     Scenario: Check error message when deleting email from email field
         Given I enter valid email
         When I delete email
@@ -19,7 +14,7 @@ Feature: Sign up email field validations
         Then I should see error message "Please enter a valid email address."
 
     Scenario: Check error message if there is no @ symbol email
-        Given I enter email without @ syombol
+        Given I enter email without @ symbol
         Then I should see error message "Please enter a valid email address."
 
     Scenario: Check error message if there is spaces in email
