@@ -69,11 +69,3 @@ To view the steps usage, run:
 ```
 npm run features:usage
 ```
-
-#### Possible Improvements
-- Refactor steps in `.feature` files to pass the variables dynamically so there is no need for defining separete step for each case 
-- Creating Page Object Model with classes each page, e.g. SignUp page, SignIn page, Mailinator page 
-- Define selectors and methods within classes, moving part of the logic from the steps. Leading to cleaner step files
-- Add possibility to dynamicaly choose test execution mode `headless` or `headfull`  
-- Create basic workflow for executing tests on GitHub via GitActions  
-- Add better reporter

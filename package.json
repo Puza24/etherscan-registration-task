@@ -9,12 +9,17 @@
     "regression": "npx cucumber-js --tags @regression",
     "wip": "npx cucumber-js --tags @wip"
   },
-  "keywords": ["Playwright", "Cucumber", "Typescript"],
+  "keywords": [
+    "Playwright",
+    "Cucumber",
+    "Typescript"
+  ],
   "author": "Aleksa Puzic",
   "license": "ISC",
   "description": "Automation framework utilizing Playwright & Cucumber with Typescript",
   "devDependencies": {
     "@cucumber/cucumber": "11.1.1",
+    "@cucumber/pretty-formatter": "^1.0.1",
     "@playwright/test": "1.49.1",
     "@types/node": "22.10.2",
     "ts-node": "10.9.2"

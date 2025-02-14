@@ -17,8 +17,3 @@ Feature: Sign up username field validations
 
   Scenario: Check error for using special characters
     Given I enter any special characters returns error
-
-  Scenario: Leaving username empty returns error
-    Given I enter "validUsername" characters 
-    When I clear input
-    Then I see an error

@@ -6,7 +6,7 @@ import {
   AfterAll,
   Status,
 } from "@cucumber/cucumber";
-import { Browser, BrowserContext, chromium, Page } from "@playwright/test";
+import { Browser, BrowserContext, chromium, Page, expect } from "@playwright/test";
 
 setDefaultTimeout(60 * 1000);
 
@@ -23,6 +23,7 @@ BeforeAll(async () => {
 Before(async () => {
   context = await browser.newContext();
   page = await context.newPage();
+  await page.setViewportSize({ width: 1920, height: 1080 });
   await page.goto("https://etherscan.io/register");
 });
 
@@ -41,4 +42,4 @@ AfterAll(async () => {
   }
 });
 
-export { page };
+export { page, expect };
